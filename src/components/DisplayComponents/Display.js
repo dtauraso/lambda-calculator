@@ -8,15 +8,17 @@ const Display = () => {
           <div className="display">{/* Display any props data here */}
 
           </div>
-          <div >
-          <Specials />
-          <Numbers />
+          <div className="allButtons">
 
+            <div className="specialNumbers">
+              <Specials />
+              <Numbers />
+            </div>
+            
+            <Operators />
           </div>
-          <div>
-          <Operators />
+          
 
-          </div>
 
   </div>;
 };
