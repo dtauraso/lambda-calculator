@@ -8,7 +8,7 @@ const Display = () => {
           <div className="display">{/* Display any props data here */}
 
           </div>
-          <div>
+          <div >
           <Specials />
           <Numbers />
 

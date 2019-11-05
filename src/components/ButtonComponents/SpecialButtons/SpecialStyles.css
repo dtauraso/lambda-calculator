@@ -1,0 +1,16 @@
+.specialStyle {
+    color: white;
+    /* width: 5rem; */
+    height: 3rem;
+    border-radius: 20px;
+    /* padding: 5px 15px; */
+    margin: 4px 2px;
+    background: blue;
+    cursor: pointer;
+    font-size: 2rem;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: center; */
+
+}
