@@ -24,12 +24,13 @@
   .specialNumbers {
       display: flex;
       flex-direction: column;
+      width: 40%;
   }
 
   .allButtons {
       display: flex;
       flex-direction: row;
       /* the collection of buttons is an item*/
-      /* align-items: center; */
+      justify-content: center;
   }
   

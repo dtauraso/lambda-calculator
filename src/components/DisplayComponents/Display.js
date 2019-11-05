@@ -3,18 +3,20 @@ import Numbers from "../ButtonComponents/NumberButtons/Numbers"
 import Operators from "../ButtonComponents/OperatorButtons/Operators"
 import Specials from "../ButtonComponents/SpecialButtons/Specials"
 
-const Display = () => {
+const Display = (props) => {
+  console.log(props.modifier)
   return <div >
-          <div className="display">{/* Display any props data here */}
+          <div className="display">{/* Display any props data here */
+          props.value}
 
           </div>
           <div className="allButtons">
 
             <div className="specialNumbers">
               <Specials />
-              <Numbers />
+              <Numbers modifier={props.modifier}/>
             </div>
-            
+
             <Operators />
           </div>
           

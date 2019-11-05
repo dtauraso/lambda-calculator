@@ -1,13 +1,17 @@
 .numberStyle {
     color: white;
     width: 4rem;
-    height: 3rem;
-    border-radius: 20px;
+    height: 4rem;
+
+    border-radius: 50%;
     /* padding: 5px 15px; */
     margin: 4px 2px;
     background: darkblue;
     cursor: pointer;
     font-size: 2rem;
+    outline: none;
+    box-shadow: 1px 5px 5px 2px;
+
     /* display: flex; */
     /* flex-direction: column; */
     /* align-items: center; */
