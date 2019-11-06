@@ -18,9 +18,18 @@ function App() {
   // Don't forget to pass the functions (and any additional data needed) to the components as props
   const [displayData, setDisplayData] = useState(0);
   const [buffer, setBuffer] = useState(0)
+  const [operatorKind, setOperatorKind] = useState("")
   const buttonRepeat = (newPoint) => {
-    // console.log(displayData * 10, parseInt(newPoint), (displayData * 10) + parseInt(newPoint))
+    // Take displayData, advance it to the next place value(left shift it),
+    // add the converted newPoint to
+    // formula I got from a computer organization textbook
     setDisplayData((displayData * 10) + parseInt(newPoint))
+  }
+  const exchangeBuffers = (operatorItem) => {
+    setBuffer(displayData)
+    setDisplayData(0)
+    setOperatorKind(operatorItem)
+
   }
   const operations = (buttonKind, index) => {
     if(buttonKind === "special") {
@@ -31,10 +40,36 @@ function App() {
 
     }
     else if(buttonKind === "operation") {
-      if(index === "+") {
-        setBuffer(displayData)
-        setDisplayData(0)
-        console.log(displayData, buffer)
+      if( index === "+" ||
+          index === "-" ||
+          index === "/" ||
+          index === "*") {
+
+        exchangeBuffers(index)
+        console.log(buffer, displayData)
+
+      }
+      else if(index === "=") {
+        if(operatorKind === "+") {
+          console.log(buffer, displayData)
+          // use displayData as an accumulator
+          setDisplayData(buffer + displayData)
+          // maybe the new displayData can't be shown now?
+          console.log(buffer + displayData, buffer)
+  
+          setBuffer(0)
+  
+        }
+        else if(operatorKind === "-") {
+          console.log(buffer, displayData)
+          // use displayData as an accumulator
+          setDisplayData(buffer - displayData)
+          // maybe the new displayData can't be shown now?
+          console.log(buffer - displayData, buffer)
+  
+          setBuffer(0)
+
+        }
 
       }
     }
