@@ -19,6 +19,7 @@ function App() {
   const [displayData, setDisplayData] = useState(0);
   const [buffer, setBuffer] = useState(0)
   const [operatorKind, setOperatorKind] = useState("")
+  // the operations done is buffer (*, +, -, /) displayData
   const buttonRepeat = (newPoint) => {
     // Take displayData, advance it to the next place value(left shift it),
     // add the converted newPoint to
@@ -46,26 +47,54 @@ function App() {
           index === "*") {
 
         exchangeBuffers(index)
-        console.log(buffer, displayData)
+        // console.log(buffer, displayData)
 
       }
       else if(index === "=") {
         if(operatorKind === "+") {
-          console.log(buffer, displayData)
+          // console.log(buffer, displayData)
           // use displayData as an accumulator
           setDisplayData(buffer + displayData)
           // maybe the new displayData can't be shown now?
-          console.log(buffer + displayData, buffer)
+          // console.log(buffer + displayData, buffer)
   
           setBuffer(0)
   
         }
         else if(operatorKind === "-") {
-          console.log(buffer, displayData)
+          // console.log(buffer, displayData)
           // use displayData as an accumulator
           setDisplayData(buffer - displayData)
           // maybe the new displayData can't be shown now?
-          console.log(buffer - displayData, buffer)
+          // console.log(buffer - displayData, buffer)
+  
+          setBuffer(0)
+
+        }
+        else if(operatorKind === "/") {
+          // console.log(buffer, displayData)
+          if(displayData === 0) {
+            console.log("can't divide by 0")
+            setDisplayData(0)
+            setBuffer(0)
+            
+          } else {
+            // use displayData as an accumulator
+            setDisplayData(buffer / displayData)
+            // maybe the new displayData can't be shown now?
+            // console.log(buffer - displayData, buffer)
+    
+            setBuffer(0)
+
+          }
+
+        }
+        else if(operatorKind === "*") {
+          // console.log(buffer, displayData)
+          // use displayData as an accumulator
+          setDisplayData(buffer * displayData)
+          // maybe the new displayData can't be shown now?
+          // console.log(buffer * displayData, buffer)
   
           setBuffer(0)
 
