@@ -17,10 +17,28 @@ function App() {
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
   const [displayData, setDisplayData] = useState(0);
-  // const changeData = (newPoint) => {
+  const [buffer, setBuffer] = useState(0)
+  const buttonRepeat = (newPoint) => {
+    // console.log(displayData * 10, parseInt(newPoint), (displayData * 10) + parseInt(newPoint))
+    setDisplayData((displayData * 10) + parseInt(newPoint))
+  }
+  const operations = (buttonKind, index) => {
+    if(buttonKind === "special") {
+      if(index === "C" ) {
+        setDisplayData(0)
 
-  //   setDisplayData(newPoint + displayData)
-  // }
+      }
+
+    }
+    else if(buttonKind === "operation") {
+      if(index === "+") {
+        setBuffer(displayData)
+        setDisplayData(0)
+        console.log(displayData, buffer)
+
+      }
+    }
+  }
   return (
     <div className="container">
       <Logo />
@@ -28,7 +46,7 @@ function App() {
         {/* <Numbers />
         <Operators />
         <Specials /> */}
-        <Display value={displayData} modifier={setDisplayData} />
+        <Display value={displayData} modifier={buttonRepeat} operations={operations}/>
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
       </div>
     </div>
