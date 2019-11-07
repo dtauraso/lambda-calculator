@@ -20,3 +20,17 @@
     padding-right: 8%;
     font-size: 5.0rem;
   }
+
+  .specialNumbers {
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+  }
+
+  .allButtons {
+      display: flex;
+      flex-direction: row;
+      /* the collection of buttons is an item*/
+      justify-content: center;
+  }
+  
